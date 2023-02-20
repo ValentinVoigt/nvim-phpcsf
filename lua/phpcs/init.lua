@@ -1,7 +1,7 @@
 local M = {};
 
-local phpcs_path = "$HOME/.config/composer/vendor/bin/phpcs"
-local phpcbf_path = "$HOME/.config/composer/vendor/bin/phpcbf"
+local phpcs_path = "phpcs"
+local phpcbf_path = "phpcbf"
 local phpcs_standard = "PSR2"
 
 local Job = require 'plenary.job'
@@ -44,13 +44,6 @@ M.cs = function()
     Job:new(opts):start()
 end
 
---[[
---  new_opts = {
-        bufnr = 0, -- Buffer no. defaults to current
-        force = false, -- Ignore file size
-        timeout = 1000, -- Timeout in ms for the job. Default 1000ms
-    }
-]]
 M.cbf = function(new_opts)
     new_opts = new_opts or {}
     new_opts.bufnr = new_opts.bufnr or vim.api.nvim_get_current_buf()
